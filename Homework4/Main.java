@@ -19,8 +19,10 @@ public class Main {
             for (String line : lines) {
                 for (int i = 1; i < line.length(); i++) {
                     //кодировка 1040 - A, 1071 - Я, 1072 - a, 1103 - я
-                    if (((line.charAt(i) < 1040 || line.charAt(i) > 1071) && (line.charAt(i) < 1072 || line.charAt(i) > 1103)) &&
-                            line.charAt(i - 1) >= 1040 && line.charAt(i - 1) >= 1071 || line.charAt(i - 1) >= 1072 && line.charAt(i - 1) >= 1103) {
+                    if ((line.charAt(i) < 1040 || line.charAt(i) > 1103) && line.charAt(i - 1) >= 1040 && line.charAt(i - 1) <= 1103) {
+                        sum++;
+                    }
+                    if(i == line.length() - 1 && line.charAt(i) >= 1040 && line.charAt(i) <= 1103){
                         sum++;
                     }
                 }
